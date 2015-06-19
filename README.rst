@@ -25,6 +25,13 @@ Installation
 
     bower install backbone.csrf
 
+    
+Build
+=====
+.. code-block:: shell
+
+    npm install && grunt
+
 
 Rationale
 =========
