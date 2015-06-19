@@ -1,6 +1,7 @@
 =============
 backbone.csrf
 =============
+Configure your *Backbone* application to be compatible with your csrf-protected backend web frameworks
 
 
 Author
