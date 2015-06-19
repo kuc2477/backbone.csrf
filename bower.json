@@ -1,0 +1,29 @@
+{
+  "name": "backbone.csrf",
+  "version": "1.0.0",
+  "homepage": "https://github.com/kuc2477/backbone.csrf",
+  "authors": [
+    "June <kuc2477@gmail.com>"
+  ],
+  "description": "Configure X-CSRFToken header for all Backbone.sync requests",
+  "keywords": [
+    "backbone",
+    "require.js"
+  ],
+  "license": "MIT",
+  "main": [
+    "dist/backbone.csrf.min.js",
+    "dist/backbone.csrf.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "backbone": "~1.2.1"
+  }
+}

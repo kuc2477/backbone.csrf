@@ -1,0 +1,28 @@
+{
+  "name": "backbone.csrf",
+  "version": "1.0.0",
+  "description": "Configure X-CSRFToken header for all Backbone sync requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuc2477/backbone.csrf"
+  },
+  "keywords": [
+    "backbone",
+    "csrf"
+  ],
+  "author": "Ha Junsoo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuc2477/backbone.csrf/issues"
+  },
+  "homepage": "https://github.com/kuc2477/backbone.csrf",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-uglify": "^0.9.1"
+  }
+}
