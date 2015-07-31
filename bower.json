@@ -1,6 +1,6 @@
 {
   "name": "backbone.csrf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/kuc2477/backbone.csrf",
   "authors": [
     "June <kuc2477@gmail.com>"

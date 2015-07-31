@@ -1,6 +1,6 @@
 {
   "name": "backbone.csrf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Configure X-CSRFToken header for all Backbone sync requests",
   "main": "index.js",
   "scripts": {

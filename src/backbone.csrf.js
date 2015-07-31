@@ -1,3 +1,6 @@
+/*global define*/
+
+
 /**
  * Note: `backbone.csrf` currently only supports AMD sepcification.
  *
@@ -22,7 +25,7 @@
  *
  */
 define('backbone.csrf', ['jquery', 'backbone'], function($, Backbone) {
-    'user strict';
+    'use strict';
 
     /**
      * Initializes Backbone.sync to set 'X-CSRFToken' request header for
@@ -33,7 +36,7 @@ define('backbone.csrf', ['jquery', 'backbone'], function($, Backbone) {
      *
      * @return {undefined}
      */
-    function initialize() {
+    function initialize(jqueryCSRF) {
         // Get csrf token from the meta tag.
         var token = $("meta[name='csrf-token']").attr('content') || '';
         
@@ -42,14 +45,27 @@ define('backbone.csrf', ['jquery', 'backbone'], function($, Backbone) {
         if (token) {
             var originalSync = Backbone.sync;
             Backbone.sync = function(method, model, options) {
-                options.beforeSend = function(xhr) {
-                    xhr.setRequestHeader('X-CSRFToken', token);
-                };
+                // We need token only when it is non-GET requests.
+                if (method !== 'fetch') {
+                    options.beforeSend = function(xhr) {
+                        xhr.setRequestHeader('X-CSRFToken', token);
+                    };
+                }
+
                 return originalSync(method, model, options);
             };
         } else {
             // Throw error message otherwise.
             throw 'csrf-token meta tag has not been set';
+        }
+
+        // Configure jquery.ajax just in case of making requset with direct
+        // jquery, rather than useing Backbone ORM if given parameter 
+        // `jqueryCSRF` is true.
+        if (typeof jqueryCSRF !== 'undefined' && jqueryCSRF === true) {
+            $.ajaxSetup({
+                headers: {'X-CSRF-TOKEN': token}
+            });
         }
     }
 
