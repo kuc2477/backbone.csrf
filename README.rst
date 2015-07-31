@@ -67,5 +67,7 @@ Usage
 Change Log
 ==========
 * 1.0.1 (July 31, 2015):
+
   - Set ``X-CSRFToken`` header on requests only when it is non-fetch requests.
+  
   - Can set ``X-CSRFToken`` header on *jquery.ajax* requests too if ``initialize()`` has been called with boolean parameter ``true``. Default is ``false``.
