@@ -64,7 +64,11 @@ define('backbone.csrf', ['jquery', 'backbone'], function($, Backbone) {
         // `jqueryCSRF` is true.
         if (typeof jqueryCSRF !== 'undefined' && jqueryCSRF === true) {
             $.ajaxSetup({
-                headers: {'X-CSRF-TOKEN': token}
+                beforeSend: function(xhr, settings) {
+                    if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                        xhr.setRequestHeader('X-CSRFToken', token);
+                    }
+                }
             });
         }
     }
