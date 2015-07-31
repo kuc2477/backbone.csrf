@@ -70,4 +70,4 @@ Change Log
 
   - Set ``X-CSRFToken`` header on requests only when it is non-fetch requests.
   
-  - Can set ``X-CSRFToken`` header on *jquery.ajax* requests too if ``initialize()`` has been called with boolean parameter ``true``. Default is ``false``.
+  - Can set ``X-CSRFToken`` header on *jquery.ajax* requests too by calling ``initialize()`` with boolean parameter ``true``. Default is ``false``.
