@@ -22,11 +22,13 @@ Dependencies
 
 Installation
 ============
+**Bower**
+
 .. code-block:: shell
 
     bower install backbone.csrf
-   
-Or
+
+**NPM**
 
 .. code-block:: shell
 
