@@ -48,7 +48,7 @@ Although there are few cases where a *Backbone* application plays alone without 
 
 Module's the only method ``initialize()`` configures ``Backbone.sync()`` to set *X-CSRFToken* request header for every requests it sends to make sure that all backbone requests are sent with csrf tokens.
 
-You can configure your *jquery*'s ``$.ajax`` calls too, by passing ``true`` as an argument for ``initialize()`` call. This will allow you to send csrf-protection compatible requests to backends in a situation where you don't want to use *Backbone* ORM.
+You can also configure your *jquery*'s ``$.ajax`` calls by passing ``true`` to ``initialize()`` call. This will allow you to send csrf-protection compatible requests to backends directly with ``$.ajax`` calls. This can be useful in case when you need requests that doesn't match *Backbone* ORM.
 
 
 Usage
@@ -84,4 +84,4 @@ Change Log
 
   - Set ``X-CSRFToken`` header on requests only when it is non-fetch requests.
   
-  - Can set ``X-CSRFToken`` header on *jquery.ajax* requests too by calling ``initialize()`` with boolean parameter ``true``. Default is ``false``.
+  - Set ``X-CSRFToken`` header on *jquery.ajax* requests by calling ``initialize()`` with boolean parameter ``true``. Default is ``false``.
