@@ -11,7 +11,7 @@ Author
 
 Compatibility
 =============
-* Only supports AMD specification
+* Supports both AMD / CommonJS specification.
 
 
 Dependencies
@@ -25,6 +25,12 @@ Installation
 .. code-block:: shell
 
     bower install backbone.csrf
+   
+Or
+
+.. code-block:: shell
+
+   npm install backbone.csrf
 
     
 Build
@@ -38,9 +44,9 @@ Rationale
 =========
 Although there are few cases where a *Backbone* application plays alone without any backend frameworks such as *Django*, *Rails*, *Play*, etc, *Backbone* itself lacks support for csrf token authentication, which most of backend web frameworks requires for client side requests for the sake of their security.
 
-*backbone.csrf* will make your Backbone application compatible with your backend web frameworks that implements CSRF protecting systems, such as *Django*, *Rails*, etc.
+*backbone.csrf* will make your Backbone application compatible with your backend web frameworks that implements CSRF protecting systems.
 
-Module's the only method ``initialize()`` configures ``Backbone.sync()`` to set *X-CSRFToken* request header for every requests it sends so that make sure all backbone requests are sent with csrf tokens.
+Module's the only method ``initialize()`` configures ``Backbone.sync()`` to set *X-CSRFToken* request header for every requests it sends to make sure that all backbone requests are sent with csrf tokens.
 
 You can configure your *jquery*'s ``$.ajax`` calls too, by passing ``true`` as an argument for ``initialize()`` call. This will allow you to send csrf-protection compatible requests to backends in a situation where you don't want to use *Backbone* ORM.
 
@@ -53,19 +59,27 @@ Usage
 
    .. code-block:: javascript
 
-       /* main.js */
+       // Node/CommonJS
+       var BackboneCSRF = require('backbone.csrf');
+       BackboneCSRF.initialize();
 
-       require(['backbone', 'backbone.csrf'], function(Backbone, BackboneCSRF) {
-           // Initialize `backbone.csrf`
+       ...
+       
+       
+       // AMD
+       require(['backbone.csrf'], function(BackboneCSRF) {
            BackboneCSRF.initialize();
 
-           // Your backbone application starts after the csrf initialization
            ...
        });
 
 
 Change Log
 ==========
+* 1.0.2 (October 27, 2015):
+
+  - Support both AMD & CommonJS specifications.
+
 * 1.0.1 (July 31, 2015):
 
   - Set ``X-CSRFToken`` header on requests only when it is non-fetch requests.
